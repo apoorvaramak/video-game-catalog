@@ -8,7 +8,7 @@ import SearchBar from './SearchBar'
 import SearchResults from './SearchResults'
 import AllUserContainer from './AllUserContainer'
 
-function Main(){
+function Main({user, setUser}){
 
     const [games, setGames] = useState([])
 
@@ -18,13 +18,13 @@ function Main(){
         .then(data => setGames(data))
     }, [])
 
-    const [user, setUser] = useState([])
+    // const [user, setUser] = useState([])
 
-    useEffect(() => {
-    fetch('/me')
-      .then(response => response.json())
-      .then(data => setUser(data))
-    }, [])
+    // useEffect(() => {
+    // fetch('/me')
+    //   .then(response => response.json())
+    //   .then(data => setUser(data))
+    // }, [])
 
     const [reviews, setReviews] = useState([])
 
@@ -66,14 +66,14 @@ function Main(){
                 <GamesContainer setUserGames = {setUserGames} userGames = {userGames} setReviews = {setReviews} reviews = {reviews} user = {user} setUser = {setUser} games = {games} setGames = {setGames}/>
             </Route>
             <Route exact path = "/games/:id">
-                <SingleGameCard setReviews = {setReviews} reviews = {reviews} user = {user} games = {games}/>
+                <SingleGameCard setUserGames = {setUserGames} userGames = {userGames} setReviews = {setReviews} reviews = {reviews} user = {user} games = {games}/>
             </Route>
             <Route exact path = "/reviews/:id/edit">
                 <ReviewForm reviews = {reviews} setReviews = {setReviews} user = {user} />
             </Route>
             <Route exact path = "/search">
                 <SearchBar games ={games} searchValue = {searchValue} setSearchValue = {setSearchValue} searchedGames = {searchedGames} setSearchedGames = {setSearchedGames}/>
-                <SearchResults searchedGames = {searchedGames} setUser = {setUser} user = {user} setReviews = {setReviews} reviews = {reviews} setGames = {setGames}/>
+                <SearchResults setUserGames = {setUserGames} userGames = {userGames} searchedGames = {searchedGames} setUser = {setUser} user = {user} setReviews = {setReviews} reviews = {reviews} setGames = {setGames}/>
             </Route>
             <Route exact path = "/user/:id">
                 <AllUserContainer setReviews = {setReviews} reviews = {reviews} setUser = {setUser} users = {allUsers}/>

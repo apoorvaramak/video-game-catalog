@@ -2,7 +2,7 @@ import {useParams, useHistory} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import GameCard from './GameCard'
 
-function SingleGameCard({setReviews, reviews, user, games}){
+function SingleGameCard({userGames, setUserGames, setReviews, reviews, user, games}){
 
     const history = useHistory();
     console.log(reviews, "the reviews")
@@ -77,7 +77,7 @@ function SingleGameCard({setReviews, reviews, user, games}){
     
     return(
         <div>
-            {game ? <GameCard reviews = {reviews} setReviews = {setReviews} game = {game} key = {game.id} id = {game.id} name = {game.name} released = {game.released} background_img = {game.background_img} rating = {game.rating} platforms = {game.platforms}/> : ""}
+            {game ? <GameCard user = {user} setUserGames = {setUserGames} userGames = {userGames} reviews = {reviews} setReviews = {setReviews} game = {game} key = {game.id} id = {game.id} name = {game.name} released = {game.released} background_img = {game.background_img} rating = {game.rating} platforms = {game.platforms}/> : ""}
             {theReviews}
             {isUserGame ? <button name = {game.id} onClick = {handleRemoveGame}>Remove from Wishlist</button> : ""}
         </div>

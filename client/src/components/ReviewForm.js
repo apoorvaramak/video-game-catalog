@@ -6,7 +6,7 @@ function ReviewForm({reviews, setReviews, user}){
 
     const [addReview, setAddReview] = useState({
         content: '',
-        user_rating: 0
+        user_rating: 1
     })
 
     const [editing, setEditing] = useState(false)

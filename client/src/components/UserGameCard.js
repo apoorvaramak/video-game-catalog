@@ -36,12 +36,13 @@ function UserGameCard({reviews, setUserGames, userGames, setReviews, user, setUs
         reviewId = gamesReviews[0].id
     }
 
-    let theReview = ""
+    let theReview = []
 
     
 
     const theGamesReviews = gamesReviews.map((review) => {
         theReview = reviews.find((aReview) => aReview.id == review.id)
+        console.log(reviews, review.id, theReview, user, "reviews + the Reviews")
             if(review.content){
                 if(theReview.user.id == user.id) {
                     return(

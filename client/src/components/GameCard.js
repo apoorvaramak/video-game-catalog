@@ -2,13 +2,13 @@ import {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import '../index.css'
 
-function GameCard({setUserGames, userGames, setReviews, reviews, game, id, name, released, background_img, rating, platforms}){
-    const[user, setUser] = useState([])
-    useEffect(() => {
-        fetch('/me')
-          .then(response => response.json())
-          .then(data => setUser(data))
-      }, [])
+function GameCard({user, setUserGames, userGames, setReviews, reviews, game, id, name, released, background_img, rating, platforms}){
+    // const[user, setUser] = useState([])
+    // useEffect(() => {
+    //     fetch('/me')
+    //       .then(response => response.json())
+    //       .then(data => setUser(data))
+    //   }, [])
 
       let history = useHistory()
 

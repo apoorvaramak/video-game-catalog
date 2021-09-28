@@ -4,6 +4,7 @@ import {useEffect, useState} from "react"
 import NavBar from './components/NavBar.js'
 import Main from './components/Main.js'
 import Login from './components/Login.js'
+import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -23,7 +24,7 @@ function App() {
   return (
     <>
       <NavBar setUser = {setUser}/>
-      <Main/>
+      <Main user = {user} setUser = {setUser}/>
     </>
   )
 }
