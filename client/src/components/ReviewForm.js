@@ -20,7 +20,6 @@ function ReviewForm({reviews, setReviews, user}){
 
     function handleFormSubmit(event){
         event.preventDefault()
-        console.log(params)
         fetch(`http://localhost:3000/reviews/${params.id}`, {
             method: "PATCH",
             headers: {

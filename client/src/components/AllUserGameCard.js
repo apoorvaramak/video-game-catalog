@@ -6,7 +6,6 @@ function AllUserGameCard({game, user, reviews, id, name, released, background_im
     function handleGameClick(event){
         history.push(`/games/${event.target.name}`)
     }
-    console.log(reviews, "reviews")
     return (
         <div className = "game-card">
             name: {name}

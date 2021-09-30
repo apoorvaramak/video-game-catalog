@@ -1,15 +1,24 @@
 import {useState} from 'react'
+import {useHistory} from 'react-router-dom'
+import {Form, Button} from 'semantic-ui-react'
 
-function SignUpForm({onLogin}){
+function SignUpForm({onLogin, setShowLogin, showLogin}){
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const[name, setName] = useState("")
   const[age, setAge] = useState("")
   const [errors, setErrors] = useState([]);
+  
+  const history = useHistory()
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if(password !== passwordConfirmation){
+      alert('your passwords have to match!')
+    }
+    else{
     setErrors([]);
     fetch("/signup", {
       method: "POST",
@@ -31,27 +40,29 @@ function SignUpForm({onLogin}){
       }
     });
   }
-
-  function handleAge(e){
-      let year = e.target.value.slice(6)
-      let day = e.target.value.slice(3, 5)
-      let month = e.target.value.slice(0, 2)
-      let newDate = year + "-" + month + "-" + day
-      let unixDate = new Date(newDate).getTime()
-      let newAge = (Date.now() - unixDate)/(1000.0 * 60 * 60 * 24 * 365)
-      setAge(newAge)
   }
+
+  // function handleAge(e){
+  //     let year = e.target.value.slice(6)
+  //     let day = e.target.value.slice(3, 5)
+  //     let month = e.target.value.slice(0, 2)
+  //     let newDate = year + "-" + month + "-" + day
+  //     let unixDate = new Date(newDate).getTime()
+  //     let newAge = (Date.now() - unixDate)/(1000.0 * 60 * 60 * 24 * 365)
+  //     setAge(newAge)
+  // }
 
   return(
       <div>
-          <form onSubmit = {handleSubmit}>
-              <input type = "text" placeholder = "username" value = {username} onChange = {(e) => setUsername(e.target.value)}/>
-              <input type = "text" placeholder = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}/>
-              <input type = "text" placeholder = "confirm password" value = {passwordConfirmation} onChange = {(e) => setPasswordConfirmation(e.target.value)}/>
-              <input type = "text" placeholder = "name" value = {name} onChange = {(e) => setName(e.target.value)}/>
-              <input type = "text" placeholder = "MM-DD-YYYY" value = {age} onChange = {(e) => setAge(e.target.value)}/>
-              <button type = "submit">Sign Up</button>
-          </form>
+          <p>* required </p>
+          <Form onSubmit = {handleSubmit}>
+              * <Form.Input type = "text" placeholder = "username" value = {username} onChange = {(e) => setUsername(e.target.value)}/>
+              * <Form.Input type = "password" placeholder = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}/>
+              * <Form.Input type = "password" placeholder = "confirm password" value = {passwordConfirmation} onChange = {(e) => setPasswordConfirmation(e.target.value)}/>
+              * <Form.Input type = "text" placeholder = "name" value = {name} onChange = {(e) => setName(e.target.value)}/>
+              <Form.Input type = "text" placeholder = "MM-DD-YYYY" value = {age} onChange = {(e) => setAge(e.target.value)}/>
+              <Button type = "submit">Sign Up</Button>
+          </Form>
       </div>
   )
 }

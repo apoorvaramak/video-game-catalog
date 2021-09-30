@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {Form, Button} from 'semantic-ui-react'
 
 function LoginForm({onLogin}){
     const[username, setUsername] = useState("");
@@ -24,12 +25,15 @@ function LoginForm({onLogin}){
 
     return(
         <div>
-            <form onSubmit = {handleFormSubmit}>
-                <input type = "text" placeholder = "username" value = {username} onChange = {(e) => setUsername(e.target.value)}/>
-                <input type = "text" placeholder = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}/>
-                <button type = "submit"> Log In</button>
+            <Form onSubmit = {handleFormSubmit}>
+                <Form.Input type = "text" placeholder = "username" value = {username} onChange = {(e) => setUsername(e.target.value)}/>
+                <Form.Input type = "password" placeholder = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}/>
+                {/* <input type = "text" placeholder = "username" value = {username} onChange = {(e) => setUsername(e.target.value)}/>
+                <input type = "text" placeholder = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}/> */}
+                {/* <button type = "submit"> Log In</button> */}
+                <Button type = "submit">Log In</Button>
 
-            </form>
+            </Form>
         </div>
     )
 

@@ -1,4 +1,5 @@
 import {NavLink} from 'react-router-dom'
+import {Menu, Button} from 'semantic-ui-react'
 
 function NavBar({setUser}){
 
@@ -13,10 +14,20 @@ function NavBar({setUser}){
     }
     return(
         <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/feed">Games</NavLink>
-                <NavLink to="/search">Search</NavLink>
-                <button onClick = {handleLogOut}>Log Out</button>
+            <Menu>
+                <Menu.Item>
+                    <NavLink to="/">Home</NavLink>
+                </Menu.Item>
+                <Menu.Item>
+                    <NavLink to="/feed">Games</NavLink>
+                </Menu.Item>
+                <Menu.Item>
+                    <NavLink to="/search">Search</NavLink>
+                </Menu.Item>
+                <Menu.Item position = "right">
+                    <button onClick = {handleLogOut}>Log Out</button>
+                </Menu.Item>
+            </Menu>
         </nav>
     )
 }

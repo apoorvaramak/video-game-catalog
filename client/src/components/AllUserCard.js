@@ -2,14 +2,10 @@ import AllUserGameCard from './AllUserGameCard'
 
 function AllUserCard({reviews, setReviews, user, setUser}){
     let gameslist = ""
-
-    console.log(user[0])
     if(user[0]){
         user = user[0]
     }
     if (user.games){
-
-        console.log(user.games)
       
       gameslist = user.games.map(game => {
         return (

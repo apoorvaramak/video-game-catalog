@@ -5,13 +5,10 @@ import GameCard from './GameCard'
 function SingleGameCard({userGames, setUserGames, setReviews, reviews, user, games}){
 
     const history = useHistory();
-    console.log(reviews, "the reviews")
 
     const [game, setGame] = useState("")
     const [toDelete, setToDelete] = useState([])
     const params = useParams();
-    console.log(params.id)
-    console.log(games)
 
     useEffect(() => {
         fetch(`/games/${params.id}`)
@@ -23,12 +20,8 @@ function SingleGameCard({userGames, setUserGames, setReviews, reviews, user, gam
 
     let isUserGame = false
     if(user.games){
-        console.log('exists')
         user.games.forEach(game => {
-            console.log(params.id, "params")
-            console.log(game.id, "ids")
             if(game.id == params.id){
-                console.log(isUserGame, "user game")
                 isUserGame = true
             }
         })
@@ -49,18 +42,15 @@ function SingleGameCard({userGames, setUserGames, setReviews, reviews, user, gam
     }
 
     function handleUserClick(event){
-        console.log(event.target, "event target")
         history.push(`/user/${event.target.value}`)
     }
 
 
 
     let theReviews = ""
-    console.log(game.reviews)
     if(game.reviews && reviews[0]){
     theReviews = game.reviews.map((review) => {
         const aReview = reviews.filter((aReview) => aReview.id == review.id)
-        console.log(reviews.filter((aReview) => aReview.id == review.id), "a review")
         if(review.content){
         return(
             <div key = {review.id}>

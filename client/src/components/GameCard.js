@@ -14,10 +14,8 @@ function GameCard({user, setUserGames, userGames, setReviews, reviews, game, id,
 
     function handleAddGame(event){
         event.preventDefault()
-        console.log(event)
         const addedGame = {user_id: user.id, game_id: event.target.name}
         let isInLibrary = true
-        console.log(addedGame)
         reviews.forEach((review) => {
             if(review.game.id == addedGame.game_id && review.user.id == addedGame.user_id){
                 isInLibrary = false
@@ -36,10 +34,8 @@ function GameCard({user, setUserGames, userGames, setReviews, reviews, game, id,
                     body: JSON.stringify(addedGame)
                 }).then(response => response.json())
                 .then(data => {
-                    console.log(data, "reviews data")
                     setReviews([...reviews, data])
                     setUserGames([...userGames, data.game])
-                    console.log(userGames)
                     history.push('/')
                 })
         }
