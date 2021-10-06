@@ -14,14 +14,18 @@ function Login({onLogin}){
         {showLogin ? (
             <>
             <LoginForm onLogin = {onLogin} />
-            <p>Don't have an account? </p>
-            <Button onClick = {handleSignUp}>sign up</Button>
+            <div className = "login-form">
+            <h4>Don't have an account? </h4>
+            <Button onClick = {handleSignUp}>Sign up</Button>
+            </div>
             </>
         ): 
         <>
             <SignUpForm onLogin = {onLogin} setShowLogin = {setShowLogin} showLogin = {showLogin}/>
-            <p> Already have an account? </p>
-            <Button onClick = {handleSignUp}>Log in</Button>
+            <div className = "login-form">
+                <h4> Already have an account? </h4>
+                <Button onClick = {handleSignUp}>Log in</Button>
+            </div>
         </>
         }
     </>

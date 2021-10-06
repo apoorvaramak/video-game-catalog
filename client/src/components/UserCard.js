@@ -3,7 +3,9 @@ import {useHistory} from 'react-router-dom'
 
 import UserGameCard from './UserGameCard'
 import UserEditForm from './UserEditForm'
-import { Card, Button, Image } from 'semantic-ui-react';
+import { Card, Button, Image, Container } from 'semantic-ui-react';
+import styled from 'styled-components'
+import '../index.css'
 
 function UserCard({userGames, setUserGames, setReviews, reviews, user, setUser}){
   const history = useHistory();
@@ -21,7 +23,7 @@ function UserCard({userGames, setUserGames, setReviews, reviews, user, setUser})
     history.push(`/reviews/${event.target.name}/edit`)
   }
 
-  function handleEditPfp(event){
+  function handleEditPfp(event){ 
     setShowEditForm(true)
   }
 
@@ -35,22 +37,36 @@ function UserCard({userGames, setUserGames, setReviews, reviews, user, setUser})
     })
 
   return(
-    <Card.Group>
+
       <div>
-          {user.pfp ? <div><Image className = "profile-pic" src = {user.pfp} alt ={user.name} avatar circular size = "medium"></Image>
+        <div className = "user-card">
+          {user.pfp ? <div><Image style = {{width:250}}className = "profile-pic" src = {user.pfp} alt ={user.name} avatar size = "small" circular></Image>
           <span className = "username">Hi, {user.username}!</span>
           </div> : 
-          <div><Image className = "profile-pic" src = "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg" alt = "default" avatar size = "large"></Image>
+          <div><Image style = {{width:250}} className = "profile-pic" src = "https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg" alt = "default" avatar size = "large"></Image>
           <span className = "username">Hi, {user.username}!</span>
           </div>}
-          <h5>{user.bio}</h5>
+          <h3>{user.bio}</h3>
           {console.log(checked, "checked")}
-          {checked ? "" : <h5>{user.age.slice(0, 5)}</h5>}
+          {checked ? "" : <h3>{user.age.slice(0, 5)} 🎂</h3>}
           {showEditForm ? <UserEditForm checked = {checked} setChecked = {setChecked} setShowBirthday = {setShowBirthday} showBirthday = {showBirthday} setShowEditForm = {setShowEditForm} setUser = {setUser} user = {user}/> : <Button onClick = {handleEditPfp}>Edit Profile</Button>}
-          {gameslist}
+        </div>
+          <NewContentBox>
+            {gameslist}
+          </NewContentBox>
       </div>
-    </Card.Group>
   )
 }
+
+const NewContentBox = styled.div`
+  display: flex;
+  gap: 1rem;
+  padding: 0.25rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-area: content;
+  justify-content: center;
+`;
 
 export default UserCard

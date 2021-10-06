@@ -17,12 +17,70 @@ code {
   margin: 200px;
 } */
 
-.profile-pic{
+/* .profile-pic{
   margin: 50px;
   height: 300px;
   width: auto;
+} */
+
+/* .username{
+  font-size: 60px;
+} */
+
+.search-form {
+  padding: 1%;
+  margin-right: 50%;
 }
 
-.username{
-  font-size: 60px;
+.search-bar {
+  margin-left: 1%;
+}
+
+.login-form{
+  padding: 1%; 
+  margin-right: 50%;
+}
+
+.user-card{
+  margin: 2%;
+}
+
+.username {
+  font-size: 40px;
+  padding: 10px;
+}
+
+.checkbox{
+  text-align: left
+}
+
+.single-game-card {
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+
+.game-card {
+  padding: 1% 
+}
+
+.single-game-reviews {
+  display: flex; 
+  justify-content: center;
+  padding-top: 2%;
+  margin-left: 1%
+}
+
+.game-button { 
+  display: flex;
+  justify-content: center;
+}
+
+.review-button {
+  padding-left: 2%;
+  margin-top: -5px
+}
+
+.card-content {
+  padding: 1%
 }

@@ -46,13 +46,15 @@ function UserEditForm({checked, setChecked, setShowBirthday, showBirthday, user,
     return(
         <div>
         <Form onSubmit={handleSubmit}>
-            <Form.Input name = "username" type = "text" value = {edits.username} placeholder= "username" onChange = {handleEdit}/>
-            <Form.Input name = "name" type = "text" value = {edits.name} placeholder= "name" onChange = {handleEdit}/>
-            <Form.Input name = "pfp" type = "text" value = {edits.pfp} placeholder= "profile picture link" onChange = {handleEdit}/>
-            <Form.Input name = "age" type = "text" value = {edits.age} placeholder= "MM-DD-YYYY" onChange = {handleEdit}/>
-            <Form.Input type = "checkbox" checked = {checked} value = {checked} name = "showBirthday" label = "don't show my birthday" onChange = {handleChecked}/>
-            <Form.TextArea name = "bio" type = "text" value = {edits.bio} placeholder = "bio" onChange = {handleEdit}/>
-            <Button type = "submit">Edit</Button>
+            username: <Form.Input name = "username" type = "text" value = {edits.username} placeholder= "username" onChange = {handleEdit}/>
+            name: <Form.Input name = "name" type = "text" value = {edits.name} placeholder= "name" onChange = {handleEdit}/>
+            profile picture: <Form.Input name = "pfp" type = "text" value = {edits.pfp} placeholder= "profile picture link" onChange = {handleEdit}/>
+            birthday: <Form.Input name = "age" type = "text" value = {edits.age} placeholder= "MM-DD-YYYY" onChange = {handleEdit}/>
+            <div className = "checkbox">
+            <Form.Input control = "input" type = "checkbox" checked = {checked} value = {checked} name = "showBirthday" label = "don't show my birthday" onChange = {handleChecked}/>
+            </div>
+            bio: <Form.TextArea name = "bio" type = "text" value = {edits.bio} placeholder = "bio" onChange = {handleEdit}/>
+            <Button type = "submit">Save Changes</Button>
         </Form>
         </div>
     )

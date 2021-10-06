@@ -53,14 +53,16 @@ function UserGameCard({reviews, setUserGames, userGames, setReviews, user, setUs
                     }
                     return(
                         <div key = {review.id}>
-                            <h4>{review.content} {stars}</h4>
+                            <p>{review.content} {stars}</p>
                             <Button name = {review.id} onClick = {handleEditReview}>edit review</Button>
                         </div>
                     )
                 }
             }
             else{
-                return(<Button name = {reviewId} onClick = {handleAddReview}>Add a Review</Button>)
+                return(<div>
+                    <Button name = {reviewId} onClick = {handleAddReview}>Add a Review</Button>
+                    </div>)
             } 
     })
 
@@ -71,22 +73,22 @@ function UserGameCard({reviews, setUserGames, userGames, setReviews, user, setUs
             <Card.Content>
                 <div className = "game-card">
                     <Card.Header>
-                        name: {name}
+                       <h3><b>{name}</b></h3>
                     </Card.Header>
-                    image: <Image size = "massive" 
+                    <Image size = "massive" 
                     floated = "left" 
                     src = {background_img} 
                     onClick = {handleGameClick} 
                     name = {id} 
                     alt = {name}/>
-                    <Card.Description> released: {released} </Card.Description>
+                    <Card.Description> <b>released: </b>{released} </Card.Description>
                     {/* <img style ={{width: 300}}name = {id} onClick = {handleGameClick} src = {background_img} alt = {name}></img> */}
 
-                    <Card.Description> rating: {rating * 5}/5 </Card.Description>
-                    <Card.Description> platforms: {platforms} </Card.Description>
+                    <Card.Description> <b>rating:</b> {rating * 5}/5 </Card.Description>
+                    <Card.Description> <b>platforms:</b> {platforms} </Card.Description>
                     <Button name = {id} onClick = {handleDeleteReview}>Remove from List</Button>
                     <Card.Description>
-                    <p>reviews:</p>
+                    <b>reviews:</b>
                     {theGamesReviews}
                     </Card.Description>
                 </div>

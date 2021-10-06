@@ -25,7 +25,7 @@ function LoginForm({onLogin}){
 
     return(
         <div>
-            <Form onSubmit = {handleFormSubmit}>
+            <Form onSubmit = {handleFormSubmit} className = "login-form">
                 <Form.Input type = "text" placeholder = "username" value = {username} onChange = {(e) => setUsername(e.target.value)}/>
                 <Form.Input type = "password" placeholder = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}/>
                 {/* <input type = "text" placeholder = "username" value = {username} onChange = {(e) => setUsername(e.target.value)}/>

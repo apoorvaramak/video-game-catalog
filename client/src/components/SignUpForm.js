@@ -53,13 +53,13 @@ function SignUpForm({onLogin, setShowLogin, showLogin}){
   // }
 
   return(
-      <div>
-          <p>* required </p>
+      <div className = "login-form">
+          <p style = {{color: "red"}}>* required </p>
           <Form onSubmit = {handleSubmit}>
-              * <Form.Input type = "text" placeholder = "username" value = {username} onChange = {(e) => setUsername(e.target.value)}/>
-              * <Form.Input type = "password" placeholder = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}/>
-              * <Form.Input type = "password" placeholder = "confirm password" value = {passwordConfirmation} onChange = {(e) => setPasswordConfirmation(e.target.value)}/>
-              * <Form.Input type = "text" placeholder = "name" value = {name} onChange = {(e) => setName(e.target.value)}/>
+              <div style={{color: "red"}}>*</div> <Form.Input type = "text" placeholder = "username" value = {username} onChange = {(e) => setUsername(e.target.value)}/>
+              <div style={{color: "red"}}>*</div> <Form.Input type = "password" placeholder = "password" value = {password} onChange = {(e) => setPassword(e.target.value)}/>
+              <div style={{color: "red"}}>*</div> <Form.Input type = "password" placeholder = "confirm password" value = {passwordConfirmation} onChange = {(e) => setPasswordConfirmation(e.target.value)}/>
+              <div style={{color: "red"}}>*</div> <Form.Input type = "text" placeholder = "name" value = {name} onChange = {(e) => setName(e.target.value)}/>
               <Form.Input type = "text" placeholder = "MM-DD-YYYY" value = {age} onChange = {(e) => setAge(e.target.value)}/>
               <Button type = "submit">Sign Up</Button>
           </Form>

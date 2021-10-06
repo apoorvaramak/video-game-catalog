@@ -25,7 +25,7 @@ function NavBar({setUser}){
                     <NavLink to="/search">Search</NavLink>
                 </Menu.Item>
                 <Menu.Item position = "right">
-                    <button onClick = {handleLogOut}>Log Out</button>
+                    <Button onClick = {handleLogOut}>Log Out</Button>
                 </Menu.Item>
             </Menu>
         </nav>

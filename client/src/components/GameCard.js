@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import '../index.css'
+import {Card, Image, Button} from 'semantic-ui-react'
 
 function GameCard({user, setUserGames, userGames, setReviews, reviews, game, id, name, released, background_img, rating, platforms}){
     // const[user, setUser] = useState([])
@@ -53,16 +54,37 @@ function GameCard({user, setUserGames, userGames, setReviews, reviews, game, id,
     //     }
     // }
 
+    let stars = ''
+    let theRating = rating * 5;
+    console.log(theRating, "theRating")
+    while (theRating > 1){
+        stars += '⭐'
+        theRating-=1
+    }
+
 
     return(
-        <div className = "game-card">
-            name: {name}
-            released: {released}
-            <img style ={{width: 300}}name = {id} onClick = {handleGameClick} src = {background_img} alt = {name}></img>
-            rating: {rating * 5}/5
-            platforms: {platforms}
-            <button name = {id} onClick ={handleAddGame}>Add to List</button>
-        </div>
+        <Card>
+            <Card.Content>
+            <div className = "game-card">
+                <Card.Header>
+                    <h3><b>{name}</b></h3>
+                </Card.Header>
+
+                <Image size = "massive" 
+                    floated = "left" 
+                    src = {background_img} 
+                    onClick = {handleGameClick} 
+                    name = {id} 
+                    alt = {name}/>
+                {/* <img style ={{width: 300}}name = {id} onClick = {handleGameClick} src = {background_img} alt = {name}></img> */}
+                <Card.Description><b>released: </b>{released}</Card.Description>
+                <Card.Description><b>rating:</b> {stars}</Card.Description>
+                <Card.Description><b>platforms:</b> {platforms}</Card.Description>
+                <Button name = {id} onClick ={handleAddGame}>Add to List</Button>
+            </div>
+            </Card.Content>
+        </Card>
     )
 }
 
