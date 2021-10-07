@@ -1,5 +1,6 @@
 import {useState, useEffect} from  'react'
 import {useHistory, useParams} from 'react-router-dom'
+import {Button, Form} from 'semantic-ui-react'
 
 function ReviewForm({reviews, setReviews, user}){
     const params = useParams()
@@ -39,7 +40,7 @@ function ReviewForm({reviews, setReviews, user}){
         })
     }
     return(
-        <form onSubmit = {handleFormSubmit}>
+        <Form className = "login-form" onSubmit = {handleFormSubmit}>
             <input type = "text" name = "content" onChange = {handleEditReview} value = {addReview.content} placeholder = "enter review"/>
             <select name = "user_rating" onChange={handleEditReview} value={addReview.user_rating}>
 					<option value = "1"> 1 </option>
@@ -48,8 +49,8 @@ function ReviewForm({reviews, setReviews, user}){
                     <option value = "4"> 4 </option>
                     <option value = "5"> 5 </option>
 			</select>
-            <button type = "submit">Submit</button>
-        </form>
+            <Button type = "submit">Submit</Button>
+        </Form>
     )
 }
 
