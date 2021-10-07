@@ -21,7 +21,7 @@ function ReviewForm({reviews, setReviews, user}){
 
     function handleFormSubmit(event){
         event.preventDefault()
-        fetch(`http://localhost:3000/reviews/${params.id}`, {
+        fetch(`/reviews/${params.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
