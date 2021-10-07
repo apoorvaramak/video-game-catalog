@@ -37,7 +37,7 @@ function AllUserGameCard({game, user, reviews, id, name, released, background_im
                     })}
                     </Card.Description>
             {/* <img style ={{width: 300}}name = {id} onClick = {handleGameClick} src = {background_img} alt = {name}></img> */}
-          <p>reviews:</p>
+          {/* <p>reviews:</p>
               {reviews.map((review) => {
                 if(review.content && review.game.id == id && review.user.id == user.id){
                 return(
@@ -46,7 +46,7 @@ function AllUserGameCard({game, user, reviews, id, name, released, background_im
                     </div>
                 )
                 }
-            })}
+            })} */}
             </Card.Content>
             </Card>
         </div>
